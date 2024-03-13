@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+ <meta charset="UTF-8">
+ <title>Student Details Uppercase</title>
+ <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ background-color: #f4f4f4;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+ }
+ .student-container {
+ background-color: #fff;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ padding: 20px;
+ border-radius: 5px;
+ text-align: center;
+ }
+ h2 {
+ color: #333;
+ }
+ input {
+ width: 70%;
+ padding: 8px;
+ border-radius: 5px;
+ border: 1px solid #ddd;
+ margin-bottom: 10px;
+ }
+ button {
+ background-color: #4caf50;
+ color: white;
+ border: none;
+ border-radius: 3px;
+ padding: 8px;
+ cursor: pointer;
+ }
+ button:hover {
+ background-color: #45a049;
+ }
+ p {
+ text-align: center;
+ color: #555;
+ }
+ </style>
+</head>
+<body ng-controller="StudentController">
+ <div class="student-container">
+ <h2>Student Details Uppercase</h2>
+ <label for="inputName">Enter Name:</label>
+ <input type="text" id="inputName" ng-model="userInput">
+ <button ng-click="convertToUppercase()">Convert to Uppercase</button>
+ <p>Uppercase Input: {{ uppercaseResult }}</p>
+ </div>
+ <script>
+ angular.module('studentApp', [])
+ .controller('StudentController', function ($scope) {
+ $scope.userInput = '';
+ $scope.uppercaseResult = '';
+ $scope.convertToUppercase = function () {
+ $scope.uppercaseResult = $scope.userInput.toUpperCase();
+ };
+ });
+ </script>
+</body>
+</html>
